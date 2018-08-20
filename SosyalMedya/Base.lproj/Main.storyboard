@@ -135,7 +135,7 @@
                                     <constraint firstItem="eS5-bi-Of9" firstAttribute="centerX" secondItem="ckL-39-n9w" secondAttribute="centerX" id="iQ9-Nb-kZm"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaC-0p-XOv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="IaC-0p-XOv">
                                 <rect key="frame" x="16" y="90" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="1k4-Wz-yXA"/>

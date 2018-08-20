@@ -14,6 +14,7 @@
 		B4544EC72125BDBE00D7F0FC /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4544EC62125BDBE00D7F0FC /* InsetTextField.swift */; };
 		B4544EC92125C61F00D7F0FC /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4544EC82125C61F00D7F0FC /* ShadowView.swift */; };
 		B4544ECB2126860200D7F0FC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4544ECA2126860200D7F0FC /* AuthService.swift */; };
+		B4A6CBC3212A9BC500D2A7AB /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6CBC2212A9BC500D2A7AB /* UIViewExt.swift */; };
 		B4BBB6C121295FFB00E487CF /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BBB6C021295FFB00E487CF /* MeVC.swift */; };
 		B4BBB6C32129EFCA00E487CF /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BBB6C22129EFCA00E487CF /* CreatePostVC.swift */; };
 		B4EE72CA21251B5500669926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE72C921251B5500669926 /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 		B4544EC62125BDBE00D7F0FC /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		B4544EC82125C61F00D7F0FC /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		B4544ECA2126860200D7F0FC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B4A6CBC2212A9BC500D2A7AB /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		B4BBB6C021295FFB00E487CF /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		B4BBB6C22129EFCA00E487CF /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		B4EE72C621251B5500669926 /* SosyalMedya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SosyalMedya.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +111,7 @@
 		B4544EBE212556A500D7F0FC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B4A6CBC2212A9BC500D2A7AB /* UIViewExt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4A6CBC3212A9BC500D2A7AB /* UIViewExt.swift in Sources */,
 				B4BBB6C121295FFB00E487CF /* MeVC.swift in Sources */,
 				B4544EC32125BC5100D7F0FC /* AuthVC.swift in Sources */,
 				B4EE72CE21251B5500669926 /* GroupsVC.swift in Sources */,
