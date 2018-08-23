@@ -16,7 +16,7 @@ class AuthService {
     
     //  with external parameter... email internal parameter.
     // @escaping tam anlaşılamadı.
-    func registerUser(with email: String, andPassword password: String, userCreationComplete: @escaping (_ status: Bool, _ error: Error?)->()) {
+    func registerUser(withEmail email: String, andPassword password: String, userCreationComplete: @escaping (_ status: Bool, _ error: Error?) -> ()) {
         // built-in function in Firebase
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             // eğer user nil değlse user değişkenine ata. eğer user değişkeni gelmemişse error ile false yap(completion handler dan gelen parametreler)
@@ -37,7 +37,7 @@ class AuthService {
         
     }
     
-    func loginUser(with email: String, andPassword password: String, loginComplete: @escaping (_ status: Bool, _ error: Error?)->()) {
+    func loginUser(withEmail email: String, andPassword password: String, loginComplete: @escaping (_ status: Bool, _ error: Error?)->()) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
            
             if error != nil {

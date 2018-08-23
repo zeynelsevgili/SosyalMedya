@@ -10,8 +10,8 @@ import UIKit
 
 class LoginVC: UIViewController {
     @IBOutlet weak var emailTextField: InsetTextField!
-    
     @IBOutlet weak var passworTextField: InsetTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +30,7 @@ class LoginVC: UIViewController {
         
         if emailTextField.text != nil && passworTextField != nil {
             
-            AuthService.instance.loginUser(with: emailTextField.text!, andPassword: passworTextField.text!, loginComplete: { (success, error) in
+            AuthService.instance.loginUser(withEmail: emailTextField.text!, andPassword: passworTextField.text!, loginComplete: { (success, error) in
                 
                 if success {
                     self.dismiss(animated: true, completion: nil)
@@ -39,10 +39,10 @@ class LoginVC: UIViewController {
                     print(String(describing: error?.localizedDescription))
                 }
                 // eğer hiçbir kayıt yoksa bu satıra geçecek(else komutundan sonra) ve login ile girilen kişinin kaydı yapılacak.
-                AuthService.instance.registerUser(with: self.emailTextField.text!, andPassword: self.passworTextField.text!, userCreationComplete: { (success, error) in
+                AuthService.instance.registerUser(withEmail: self.emailTextField.text!, andPassword: self.passworTextField.text!, userCreationComplete: { (success, error) in
                     
                     if success {
-                        AuthService.instance.loginUser(with: self.emailTextField.text!, andPassword: self.passworTextField.text!, loginComplete: { (succes, nil) in
+                        AuthService.instance.loginUser(withEmail: self.emailTextField.text!, andPassword: self.passworTextField.text!, loginComplete: { (succes, nil) in
                             self.dismiss(animated: true, completion: nil)
                             print("başarılı bir şekilde kayıt yapıldı")
                             

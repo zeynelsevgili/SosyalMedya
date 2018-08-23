@@ -24,6 +24,13 @@ class CreatePostVC: UIViewController {
         // burada istediğimiz elementi bind edebiliriz. keyboard ile birlikte yukarı kaldırabiliriz. 
         sendBtn.bindTheKeyboard()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.emailLabel.text = Auth.auth().currentUser?.email
+        
+    }
 
     @IBAction func closeBtnWasPressed(_ sender: Any) {
         

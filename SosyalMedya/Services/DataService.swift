@@ -48,7 +48,29 @@ class DataService {
         // child kısmını bizden dictionary şeklinde istiyor.
         REF_USERS.child(uid).updateChildValues(userData)
         
+        
     }
+    
+    // uid pass ediyoruz fonksiyona datasnapshot ile user ile uid eşleşmesi yapıyoruz. eşleşmesi yapılan user ın email ini geri dönüyoruz.(handler ile)
+    func getUserName(forUID uid: String, handler: @escaping (_ username: String) -> ()) {
+        
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
+            
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for user in userSnapshot {
+                if user.key == uid {
+                    handler(user.childSnapshot(forPath: "email").value as! String)
+                }
+            }
+        }
+        
+        
+    }
+        
+        
+    
+    
     // escaping kısmı henüz anlaşılamadı.
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) ->()) {
         
@@ -64,6 +86,38 @@ class DataService {
         
         
     }
+    
+    func getAllFeedMessages(handler: @escaping (_ messages: [Message]) -> ()) {
+        
+        var messageArray = [Message]()
+        
+        // Feed kısmındaki verilerin hepsini indiriyoruz burda.
+        // "feedMessageDataSnapshot" firabase array ında saklıyoruz.
+        REF_FEED.observeSingleEvent(of: .value) { (feedMessageDataSnapshot) in
+            
+            // DataSnapshot contains data from a Firebase Database location
+            guard let feedMessageDataSnapshot = feedMessageDataSnapshot.children.allObjects as? [DataSnapshot]
+                else { return }
+            for message in feedMessageDataSnapshot {
+                
+                // content ve senderID child ları String olarak cast ediyoruz.
+                let content = message.childSnapshot(forPath: "content").value as! String
+                let sendID = message.childSnapshot(forPath: "senderId").value as! String
+                // Burada ilk objemizi oluşturuyoruz.
+                let message = Message(content: content, senderID: sendID)
+                
+                messageArray.append(message)
+            }
+            // bütün verileri firabase den indirdik ve Message türündeki messageArraya append ettik. 
+            handler(messageArray)
+            
+            
+        }
+        
+        
+        
+    }
+    
     
     
 }
