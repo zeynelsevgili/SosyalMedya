@@ -28,7 +28,7 @@ class MeVC: UIViewController {
         self.emailLabel.text = Auth.auth().currentUser?.email
     }
 
-    
+    // deneme
     // IBAction kısmı tam olarak oluşmadığı için 1.5 gün süre aldı. Dikkat et!
     @IBAction func signOutBtnWasPressed(_ sender: Any) {
         let logoutPopup = UIAlertController(title: "Çıkış?", message: "Çıkmak istediğinizden eminmisiniz?", preferredStyle: .actionSheet)
