@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
+        </array>
         <array key="Menlo.ttc">
             <string>Menlo-Bold</string>
             <string>Menlo-Regular</string>
@@ -378,6 +381,9 @@
                                             <constraint firstAttribute="width" constant="30" id="u1I-78-T2B"/>
                                         </constraints>
                                         <state key="normal" image="addNewIcon"/>
+                                        <connections>
+                                            <segue destination="ZlQ-GG-49R" kind="presentation" id="trl-O0-vGm"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GRUPLAR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsc-4W-ufc">
                                         <rect key="frame" x="137.5" y="35" width="100" height="20"/>
@@ -432,6 +438,192 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
+        </scene>
+        <!--Create GroupsVC-->
+        <scene sceneID="J9L-VP-adZ">
+            <objects>
+                <viewController id="ZlQ-GG-49R" customClass="CreateGroupsVC" customModule="SosyalMedya" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RSd-Sm-P6d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Kf-0q-AA5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yud-Qs-Y55">
+                                        <rect key="frame" x="285" y="30" width="70" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="iK4-q1-b6K"/>
+                                            <constraint firstAttribute="height" constant="30" id="tbb-nD-5zb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                        <state key="normal" title="TAMAM">
+                                            <color key="titleColor" red="0.053001858294010162" green="0.6307709813117981" blue="0.723552405834198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneBtnWasPressed:" destination="ZlQ-GG-49R" eventType="touchUpInside" id="NuP-cU-DgE"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YENİ GRUP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9L-90-gUS">
+                                        <rect key="frame" x="137.5" y="35" width="100" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="BmE-wY-qCt"/>
+                                            <constraint firstAttribute="width" constant="100" id="IMh-Ks-bXz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
+                                        <color key="textColor" red="0.053001858290000002" green="0.63077098129999998" blue="0.72355240580000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi3-X8-EZ2">
+                                        <rect key="frame" x="20" y="34" width="21" height="22"/>
+                                        <state key="normal" image="close"/>
+                                        <connections>
+                                            <action selector="closeBtnWasPressed:" destination="ZlQ-GG-49R" eventType="touchUpInside" id="E2h-9l-6sJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="gi3-X8-EZ2" firstAttribute="leading" secondItem="3Kf-0q-AA5" secondAttribute="leading" constant="20" id="9XO-06-g1R"/>
+                                    <constraint firstAttribute="height" constant="70" id="A4b-Gr-Nh7"/>
+                                    <constraint firstItem="yud-Qs-Y55" firstAttribute="top" secondItem="3Kf-0q-AA5" secondAttribute="top" constant="30" id="Pam-hL-hTJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="yud-Qs-Y55" secondAttribute="trailing" constant="20" id="Y4t-m3-rpw"/>
+                                    <constraint firstItem="yud-Qs-Y55" firstAttribute="centerY" secondItem="P9L-90-gUS" secondAttribute="centerY" id="bWr-cY-rtr"/>
+                                    <constraint firstItem="P9L-90-gUS" firstAttribute="centerY" secondItem="gi3-X8-EZ2" secondAttribute="centerY" id="pcG-Zq-Wsr"/>
+                                    <constraint firstItem="P9L-90-gUS" firstAttribute="centerX" secondItem="3Kf-0q-AA5" secondAttribute="centerX" id="uUN-p4-PSG"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RLd-Q9-O8l">
+                                <rect key="frame" x="20" y="90" width="335" height="557"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Başlık" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyo-ht-0Bq">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                                        <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Bir Başlık Seçin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8H9-Lt-Lf1" customClass="InsetTextField" customModule="SosyalMedya" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="10" width="335" height="40"/>
+                                        <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="yYw-AJ-KCW"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Açıklama" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1C-FU-3wE">
+                                        <rect key="frame" x="0.0" y="60" width="335" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                                        <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Bir açıklama not düşün" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NgE-hk-Pcg" customClass="InsetTextField" customModule="SosyalMedya" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="70" width="335" height="40"/>
+                                        <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="emJ-Ak-U43"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kişi Ekle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="vzS-8S-Pky">
+                                        <rect key="frame" x="0.0" y="120" width="335" height="18"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                        <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email ile kişi ekleyin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z0A-PR-GFd" customClass="InsetTextField" customModule="SosyalMedya" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="148" width="335" height="60"/>
+                                        <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="ICe-Lt-wjh"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CDQ-wV-FYl" customClass="User">
+                                        <rect key="frame" x="0.0" y="218" width="335" height="339"/>
+                                        <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="65" id="wRH-0b-1al" customClass="UserCell" customModule="SosyalMedya" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="335" height="65"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wRH-0b-1al" id="9zm-NY-D8b">
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="64.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="xXv-kg-qlv">
+                                                            <rect key="frame" x="20" y="10" width="38" height="38"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="38" id="7LI-fi-wsq"/>
+                                                                <constraint firstAttribute="height" constant="38" id="vnb-AF-HtH"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="zeynel.sevgili@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qx1-QS-hEb">
+                                                            <rect key="frame" x="78" y="21" width="202" height="23"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="whiteCheckmark" translatesAutoresizingMaskIntoConstraints="NO" id="05h-Cb-NHp">
+                                                            <rect key="frame" x="295" y="9" width="20" height="47"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="5AW-su-ReX"/>
+                                                                <constraint firstAttribute="width" constant="20" id="Xti-Uh-b1e"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="05h-Cb-NHp" firstAttribute="centerY" secondItem="xXv-kg-qlv" secondAttribute="centerY" id="1ie-fX-94V"/>
+                                                        <constraint firstItem="05h-Cb-NHp" firstAttribute="leading" secondItem="Qx1-QS-hEb" secondAttribute="trailing" constant="15" id="34a-HD-mMa"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="Qx1-QS-hEb" secondAttribute="bottom" constant="10" id="BS5-6Q-y9x"/>
+                                                        <constraint firstItem="xXv-kg-qlv" firstAttribute="top" secondItem="9zm-NY-D8b" secondAttribute="top" constant="10" id="Rjb-GM-89n"/>
+                                                        <constraint firstAttribute="trailing" secondItem="05h-Cb-NHp" secondAttribute="trailing" constant="20" id="Z1s-Gl-Hzg"/>
+                                                        <constraint firstItem="xXv-kg-qlv" firstAttribute="leading" secondItem="9zm-NY-D8b" secondAttribute="leading" constant="20" id="bgg-Fp-21w"/>
+                                                        <constraint firstItem="Qx1-QS-hEb" firstAttribute="centerY" secondItem="xXv-kg-qlv" secondAttribute="centerY" id="ceF-fe-p6D"/>
+                                                        <constraint firstItem="Qx1-QS-hEb" firstAttribute="leading" secondItem="xXv-kg-qlv" secondAttribute="trailing" constant="20" id="eUm-lL-EkZ"/>
+                                                        <constraint firstItem="Qx1-QS-hEb" firstAttribute="top" secondItem="9zm-NY-D8b" secondAttribute="topMargin" constant="10" id="qO2-6q-Ubq"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <outlet property="checkImage" destination="05h-Cb-NHp" id="acM-im-waZ"/>
+                                                    <outlet property="emailText" destination="Qx1-QS-hEb" id="PGk-qF-Idg"/>
+                                                    <outlet property="profileImage" destination="xXv-kg-qlv" id="6l6-BL-Cqr"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3Kf-0q-AA5" firstAttribute="top" secondItem="RSd-Sm-P6d" secondAttribute="top" id="8HB-XG-3D8"/>
+                            <constraint firstItem="TlD-cv-SaE" firstAttribute="trailing" secondItem="RLd-Q9-O8l" secondAttribute="trailing" constant="20" id="9bn-70-7Df"/>
+                            <constraint firstItem="TlD-cv-SaE" firstAttribute="bottom" secondItem="RLd-Q9-O8l" secondAttribute="bottom" constant="20" id="H6m-Kl-kAD"/>
+                            <constraint firstItem="3Kf-0q-AA5" firstAttribute="trailing" secondItem="TlD-cv-SaE" secondAttribute="trailing" id="N8f-Vc-4ha"/>
+                            <constraint firstItem="RLd-Q9-O8l" firstAttribute="top" secondItem="3Kf-0q-AA5" secondAttribute="bottom" constant="20" id="Yg6-CU-vLD"/>
+                            <constraint firstItem="3Kf-0q-AA5" firstAttribute="leading" secondItem="TlD-cv-SaE" secondAttribute="leading" id="lR4-tw-b47"/>
+                            <constraint firstItem="RLd-Q9-O8l" firstAttribute="leading" secondItem="TlD-cv-SaE" secondAttribute="leading" constant="20" id="qlZ-fE-l6f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TlD-cv-SaE"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="NgE-hk-Pcg" id="7Ao-Z0-oVh"/>
+                        <outlet property="doneBtn" destination="yud-Qs-Y55" id="Tfu-4d-1J9"/>
+                        <outlet property="emailSearchTextField" destination="Z0A-PR-GFd" id="nNK-5p-aqG"/>
+                        <outlet property="groupMemberLbl" destination="vzS-8S-Pky" id="fKv-No-c1b"/>
+                        <outlet property="tableView" destination="CDQ-wV-FYl" id="1BO-FW-k7D"/>
+                        <outlet property="titleTextField" destination="8H9-Lt-Lf1" id="RR2-xy-j0z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1uw-vN-p7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1661.5999999999999" y="662.51874062968523"/>
         </scene>
         <!--AuthVC-->
         <scene sceneID="ekv-Kq-WOu">
@@ -652,6 +844,7 @@
         <image name="logoutIcon" width="19" height="21"/>
         <image name="me-tabIcon" width="25" height="25"/>
         <image name="send" width="29" height="29"/>
+        <image name="whiteCheckmark" width="18" height="14"/>
     </resources>
     <color key="tintColor" red="0.053001858294010162" green="0.6307709813117981" blue="0.723552405834198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

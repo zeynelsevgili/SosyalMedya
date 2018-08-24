@@ -117,6 +117,29 @@ class DataService {
         
         
     }
+    // buraya textfieldden query için bir değer gelecek ve bunu database deki değer ile eşleştirip
+    // emailArray a append edeceğiz.
+    func getEmail(forSearchQuery query: String, handler: @escaping (_ emailArray: [String]) -> ()) {
+        
+        var emailArray = [String]()
+        
+        REF_USERS.observe(.value) { (userSnapshot) in
+            guard let userSnap = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for user in userSnap {
+                
+                let email = user.childSnapshot(forPath: "email").value as! String
+                if email.contains(query) == true && email != Auth.auth().currentUser?.email {
+                    
+                    emailArray.append(email)
+                }
+            }
+            handler(emailArray)
+        }
+        
+        
+        
+    }
     
     
     
