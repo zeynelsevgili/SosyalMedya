@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CreateGroupsVC: UIViewController {
 
@@ -30,6 +31,8 @@ class CreateGroupsVC: UIViewController {
         tableView.dataSource = self
         // emailTextField deki olayları control amaçlı delegate ediyoruz.
         emailSearchTextField.delegate = self
+        descriptionTextField.delegate = self
+        titleTextField.delegate = self
         // editingChanged: yani bir şeyler yazıldığında neler olacak. aşağıdaki satır bunun kontrolünü yapıyor.
         // her editing change edildiğinde selector içine yazılan fonksiyon çağrılacak
         emailSearchTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
@@ -43,7 +46,8 @@ class CreateGroupsVC: UIViewController {
         super.viewWillAppear(animated)
         doneBtn.isHidden = true
     }
-
+    
+    // textfield e email yazıldığında eşleşen maili getirir ve table reload edilir.
     @objc func textFieldDidChange() {
 
         if emailSearchTextField.text == "" {
@@ -57,8 +61,28 @@ class CreateGroupsVC: UIViewController {
 
         }
     }
-
+    // tamam butonuna basıldığında group oluşturulacak. 2 fonksiyon çağrılacak. userId ler download edilecek ve sonrasında createUser fonksiyonu çağrılıp grup oluşturulacak.
     @IBAction func doneBtnWasPressed(_ sender: Any) {
+        
+        if titleTextField.text != "" && descriptionTextField.text != "" {
+            // chose edilen mail adresleri getIds metoduna gönderilecek ve idsArray dönülecek
+            DataService.instance.getIds(forUsernames: chosenArray, handler: { (idsArray) in
+                // bu kısmı hali hazırda giriş yapan bir kişinin kendi id sini userIds array ına eklemek için yapıyoruz.
+                var userIds = idsArray
+                userIds.append((Auth.auth().currentUser?.uid)!)
+                DataService.instance.createGroup(withTitle: self.titleTextField.text!, andDescription: self.descriptionTextField.text!, forUserIds: userIds, handler: { (isGroupCreated) in
+                    if isGroupCreated {
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        print("grup kurulamadı")
+                    }
+                    
+                })
+            })
+            
+            
+        }
+        
     }
 
     @IBAction func closeBtnWasPressed(_ sender: Any) {
@@ -118,5 +142,13 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource {
 
 extension CreateGroupsVC: UITextFieldDelegate {
 
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        titleTextField.placeholder = ""
+        descriptionTextField.placeholder = ""
+        emailSearchTextField.placeholder = ""
+    }
+
+   
+    
 }
 

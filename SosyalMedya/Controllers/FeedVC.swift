@@ -21,6 +21,8 @@ class FeedVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+
     }
     
 
@@ -32,6 +34,7 @@ class FeedVC: UIViewController {
             // reversed() fonksiyonu herhangi bir array ı tersine çevirir. en son gönderilen sayfada ilk başta görünür.
             self.messageArray = returnedMessageArray.reversed()
             self.tableView.reloadData()
+            
     }
 
 }

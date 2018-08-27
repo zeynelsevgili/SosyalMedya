@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A7FA85CDE3DDC4C5A67326E2 /* Pods_SosyalMedya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 883B62A466E080C5579F904E /* Pods_SosyalMedya.framework */; };
+		B421B99D21314F7800ED5B43 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421B99C21314F7800ED5B43 /* GroupCell.swift */; };
 		B4544EC1212556D300D7F0FC /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4544EC0212556D300D7F0FC /* DataService.swift */; };
 		B4544EC32125BC5100D7F0FC /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4544EC22125BC5100D7F0FC /* AuthVC.swift */; };
 		B4544EC52125BD0900D7F0FC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4544EC42125BD0900D7F0FC /* LoginVC.swift */; };
 		B4544EC72125BDBE00D7F0FC /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4544EC62125BDBE00D7F0FC /* InsetTextField.swift */; };
 		B4544EC92125C61F00D7F0FC /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4544EC82125C61F00D7F0FC /* ShadowView.swift */; };
 		B4544ECB2126860200D7F0FC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4544ECA2126860200D7F0FC /* AuthService.swift */; };
+		B45A3BA4213442EE00D7F19A /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A3BA3213442EE00D7F19A /* UIViewControllerExt.swift */; };
 		B4A6CBC3212A9BC500D2A7AB /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6CBC2212A9BC500D2A7AB /* UIViewExt.swift */; };
 		B4A6CBC5212ADE2100D2A7AB /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6CBC4212ADE2100D2A7AB /* FeedCell.swift */; };
 		B4A6CBC7212BD92900D2A7AB /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6CBC6212BD92900D2A7AB /* Message.swift */; };
@@ -28,18 +30,23 @@
 		B4EE72D321251B5500669926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4EE72D221251B5500669926 /* Assets.xcassets */; };
 		B4EE72D621251B5500669926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4EE72D421251B5500669926 /* LaunchScreen.storyboard */; };
 		B4EE72DE21251C0900669926 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4EE72DD21251C0900669926 /* GoogleService-Info.plist */; };
+		B4F84DF8213163A9000855FB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84DF7213163A9000855FB /* Group.swift */; };
+		B4F84DFA2131B1C2000855FB /* GroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84DF92131B1C2000855FB /* GroupFeedCell.swift */; };
+		B4F84DFC2131B223000855FB /* GroupFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84DFB2131B223000855FB /* GroupFeedVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		45A506EE9F39647D86E238F3 /* Pods-SosyalMedya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SosyalMedya.release.xcconfig"; path = "Pods/Target Support Files/Pods-SosyalMedya/Pods-SosyalMedya.release.xcconfig"; sourceTree = "<group>"; };
 		6A6A7F646FF2DC679E495AB1 /* Pods-SosyalMedya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SosyalMedya.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SosyalMedya/Pods-SosyalMedya.debug.xcconfig"; sourceTree = "<group>"; };
 		883B62A466E080C5579F904E /* Pods_SosyalMedya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SosyalMedya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B421B99C21314F7800ED5B43 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		B4544EC0212556D300D7F0FC /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		B4544EC22125BC5100D7F0FC /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		B4544EC42125BD0900D7F0FC /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B4544EC62125BDBE00D7F0FC /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		B4544EC82125C61F00D7F0FC /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		B4544ECA2126860200D7F0FC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B45A3BA3213442EE00D7F19A /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		B4A6CBC2212A9BC500D2A7AB /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		B4A6CBC4212ADE2100D2A7AB /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		B4A6CBC6212BD92900D2A7AB /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -56,6 +63,9 @@
 		B4EE72D521251B5500669926 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4EE72D721251B5500669926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4EE72DD21251C0900669926 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B4F84DF7213163A9000855FB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		B4F84DF92131B1C2000855FB /* GroupFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedCell.swift; sourceTree = "<group>"; };
+		B4F84DFB2131B223000855FB /* GroupFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,7 @@
 				B4BBB6C021295FFB00E487CF /* MeVC.swift */,
 				B4BBB6C22129EFCA00E487CF /* CreatePostVC.swift */,
 				B4A6CBCA212F176500D2A7AB /* CreateGroupsVC.swift */,
+				B4F84DFB2131B223000855FB /* GroupFeedVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -108,6 +119,8 @@
 				B4544EC82125C61F00D7F0FC /* ShadowView.swift */,
 				B4A6CBC4212ADE2100D2A7AB /* FeedCell.swift */,
 				B4A6CBCC212F318B00D2A7AB /* UserCell.swift */,
+				B421B99C21314F7800ED5B43 /* GroupCell.swift */,
+				B4F84DF92131B1C2000855FB /* GroupFeedCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				B4A6CBC6212BD92900D2A7AB /* Message.swift */,
+				B4F84DF7213163A9000855FB /* Group.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				B4A6CBC2212A9BC500D2A7AB /* UIViewExt.swift */,
+				B45A3BA3213442EE00D7F19A /* UIViewControllerExt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -296,11 +311,16 @@
 				B4A6CBC3212A9BC500D2A7AB /* UIViewExt.swift in Sources */,
 				B4A6CBC5212ADE2100D2A7AB /* FeedCell.swift in Sources */,
 				B4BBB6C121295FFB00E487CF /* MeVC.swift in Sources */,
+				B421B99D21314F7800ED5B43 /* GroupCell.swift in Sources */,
 				B4544EC32125BC5100D7F0FC /* AuthVC.swift in Sources */,
+				B45A3BA4213442EE00D7F19A /* UIViewControllerExt.swift in Sources */,
 				B4EE72CE21251B5500669926 /* GroupsVC.swift in Sources */,
+				B4F84DFC2131B223000855FB /* GroupFeedVC.swift in Sources */,
+				B4F84DFA2131B1C2000855FB /* GroupFeedCell.swift in Sources */,
 				B4544EC52125BD0900D7F0FC /* LoginVC.swift in Sources */,
 				B4EE72CA21251B5500669926 /* AppDelegate.swift in Sources */,
 				B4A6CBCB212F176500D2A7AB /* CreateGroupsVC.swift in Sources */,
+				B4F84DF8213163A9000855FB /* Group.swift in Sources */,
 				B4A6CBCD212F318B00D2A7AB /* UserCell.swift in Sources */,
 				B4544EC92125C61F00D7F0FC /* ShadowView.swift in Sources */,
 				B4EE72CC21251B5500669926 /* FeedVC.swift in Sources */,

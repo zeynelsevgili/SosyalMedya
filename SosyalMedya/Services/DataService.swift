@@ -67,16 +67,17 @@ class DataService {
         
         
     }
-        
-        
+
     
-    
-    // escaping kısmı henüz anlaşılamadı.
+    // escaping kısmı henüz anlaşılamadı.(kısmen anlaşıldı)
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) ->()) {
         
         if groupKey != nil {
             
-            // send to groups ref
+            // herbir mesaj autoid ye sahip olacak. bu auto id nin içerisinde yeni bir child olacak(content ve senderId) update edeceğimiz child değerlerini dictionary ile update ediyoruz.
+            REF_GROUPS.child(groupKey!).child("messages").childByAutoId().updateChildValues(["content": message, "senderId": uid])
+            sendComplete(true)
+            
         } else {
             // FEED kısmına post ediyoruz. childByAutoId() her bir message için unique bir id sağlar.
             REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid])
@@ -84,6 +85,20 @@ class DataService {
         }
         
         
+    }
+    
+    func getAllMessagesFor(desiredGroup: Group, handler: @escaping (_ messagesArray: [Message]) -> ()){
+        var groupMessageArray = [Message]()
+        REF_GROUPS.child(desiredGroup.key).child("messages").observeSingleEvent(of: .value) { (groupMessageSnapshot) in
+            guard let groupMessageSnapshot = groupMessageSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            for groupMessage in groupMessageSnapshot {
+                let content = groupMessage.childSnapshot(forPath: "content").value as! String
+                let senderId = groupMessage.childSnapshot(forPath: "senderId").value as! String
+                let groupMessage = Message(content: content, senderID: senderId)
+                groupMessageArray.append(groupMessage)
+            }
+            handler(groupMessageArray)
+        }
         
     }
     
@@ -113,9 +128,7 @@ class DataService {
             
             
         }
-        
-        
-        
+   
     }
     // buraya textfieldden query için bir değer gelecek ve bunu database deki değer ile eşleştirip
     // emailArray a append edeceğiz.
@@ -136,11 +149,84 @@ class DataService {
             }
             handler(emailArray)
         }
+    
+    }
+    
+    // girilen username e göre email eşleştirilecek ve bu maillerin id leri dönülecek.
+    func getIds(forUsernames usernames: [String], handler: @escaping (_ uidArray: [String]) -> ()) {
         
-        
+        var idArray = [String]()
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
+            
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for user in userSnapshot {
+                let email = user.childSnapshot(forPath: "email").value as! String
+                if usernames.contains(email) {
+                    // id diziye ekleniyor. user.key? tam olarak anlaşılamadı. nasıl çekti keyleri doğrudan
+                    idArray.append(user.key)
+                }
+            }
+            handler(idArray)
+        }
         
     }
     
+    func getEmailsForGroup(forGroup group: Group, handler: @escaping (_ emailArray: [String]) -> ()) {
+        
+        var emailArray = [String]()
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for user in userSnapshot {
+
+                if group.members.contains(user.key) {
+                    
+                    let email = user.childSnapshot(forPath: "email").value as! String
+                    
+                    emailArray.append(email)
+                }
+            }
+            handler(emailArray)
+        }
+    }
     
+    // id kısmı nasıl buraya parametre olarak gönderilecek gözlemle. ayrıca handler true döndüğünde neler olacak gözlemle.
+    func createGroup(withTitle title: String, andDescription description: String, forUserIds ids: [String], handler: @escaping (_ groupCreated: Bool) -> ()) {
+        // idArray yukarıdaki fonksiyonda dönüldükten sonra burada members adı altında faaliyet gösterecek
+        REF_GROUPS.childByAutoId().updateChildValues(["title": title, "description": description, "members": ids])
+        // yukarıdaki update işlemi tamamlandığında handler true değeri döner
+        handler(true)
+    }
+    
+    func getAllGroups(handler: @escaping (_ groupsArray: [Group]) -> ()) {
+        
+        var groupsArray = [Group]()
+        
+        // observeSingleEvent Sadece bir kereliğine observe eder. Firebase e veri eklendiğinde aktif olmaz. Bundan ötürü GroupsVC de
+        // viewDidAppear() metodu içine observe ekliyoruz ki arraya her veri eklendiğini izliyor. bundan sonra da tableReload() ediyoruz.
+        REF_GROUPS.observeSingleEvent(of: .value) { (groupSnapshot) in
+            
+            guard let groupSnapshot = groupSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for group in groupSnapshot {
+            let memberArray = group.childSnapshot(forPath: "members").value as! [String]
+                // neden halihazırdaki user ı arıyor?
+                if memberArray.contains((Auth.auth().currentUser?.uid)!) {
+                    let title = group.childSnapshot(forPath: "title").value as! String
+                    let description = group.childSnapshot(forPath: "description").value as! String
+                    // aşağıda group.key nereden geliyor. araştır. dikkat membersCount a arraydaki eleman sayısını verdi.
+                    let group = Group(title: title, description: description, key: group.key, members: memberArray, membersCount: memberArray.count)
+                    
+                    groupsArray.append(group)
+                }
+
+                
+            }
+            handler(groupsArray)
+        }
+
+        
+    }
     
 }

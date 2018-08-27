@@ -65,6 +65,7 @@ class CreatePostVC: UIViewController {
 
 extension CreatePostVC: UITextViewDelegate {
     
+    // text yazılmaya başlandığında default olan placeholder ı sil
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = ""
     }
